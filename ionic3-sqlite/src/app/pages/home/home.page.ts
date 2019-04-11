@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router} from '@angular/router';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { AddDataPage } from '../add-data/add-data.page';
 import { EditDataPage } from '../edit-data/edit-data.page';
@@ -21,9 +21,11 @@ export class HomePage {
 
   ionViewDidLoad() {
     this.getData();
+    alert("IonView");
   }
   
   ionViewWillEnter() {
+    alert("ionViewWillEnter");
     this.getData();
   }
   
@@ -59,10 +61,12 @@ export class HomePage {
         }
       })
     }).catch(e => console.log(e));
+
+    return console.log("Failed to get data");
   }
   
   addData() {
-
+    //this.router.navigateByUrl(`/add-data`);
     this.router.navigate(['/add-data']);
     //this.navCtrl.push(AddDataPage);
   }
